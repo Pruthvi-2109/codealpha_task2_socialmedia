@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Network</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <header>
+        <h1>My Social Network</h1>
+    </header>
+    <main>
+        <section id="user-profile">
+            <h2>User Profile</h2>
+            <div id="profile-info"></div>
+        </section>
+        <section id="posts">
+            <h2>Posts</h2>
+            <div id="post-container"></div>
+            <input type="text" id="new-post" placeholder="What's on your mind?">
+            <button onclick="addPost()">Post</button>
+        </section>
+    </main>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        header {
+            background: #333;
+            color: white;
+            padding: 10px 0;
+        }
+        main {
+            margin: 20px;
+        }
+        #posts {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        button {
+            padding: 10px;
+            background: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        function addPost() {
+            let postContainer = document.getElementById("post-container");
+            let newPostInput = document.getElementById("new-post");
+            if (newPostInput.value.trim() !== "") {
+                let post =  document.createElement("div");
+                post.className = "post";
+                post.textContent = newPostInput.value;
+                postContainer.appendChild(post);
+                newPostInput.value = "";
+            }
+        }
+    </script>
+</body>
+</html>
